@@ -1,0 +1,21 @@
+.btn-warning {
+    color: #212529;
+    background-color: #3d07ff;
+    border-color: #077bff;
+  }
+  
+  .btn-warning:hover {
+    color: #212529;
+    background-color: #1600e0;
+    border-color: #2000d3;
+  }
+  .img-fluid2 {
+    max-width: 100%;
+    heigth: 180px;
+    
+   }
+   .img-fluid3 {
+    max-width: auto;
+    heigth: auto;
+    
+   }
