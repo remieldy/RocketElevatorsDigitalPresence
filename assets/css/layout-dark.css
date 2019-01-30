@@ -7,7 +7,7 @@
 	Dark section alternate: #151515
 */
 .btn {
-	color:#fff;
+	color:rgb(80, 71, 71);
 }
 
 /* Button Bordered */
@@ -29,7 +29,7 @@ pre {
 section input,
 section select,
 section textarea {
-	color:#fff !important;
+	color:rgb(88, 85, 85) !important;
 	border-color:#999 !important;
 	background-color:#212121 !important;
 }
@@ -76,7 +76,7 @@ section {
 	}
 
 .btn-default {
-	color:#fff;
+	color:rgb(122, 107, 107);
 	background-color:#212121;
 	border-color:#777;
 }
@@ -84,7 +84,7 @@ body>#wrapper>.btn-default {
 	border-color:transparent;
 }
 	body>#wrapper>.btn-default:hover {
-		color:#fff;
+		color:rgb(78, 74, 74);
 		background-color:#121212;
 	}
 
@@ -98,7 +98,7 @@ hr {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#d6d6d6',GradientType=0 );
 }
 h1, h2, h3, h4, h5, h6 {
-	color:#fff;
+	color:rgb(70, 66, 66);
 }
 p {
 	color:#ccc;
@@ -127,7 +127,7 @@ section .display-table p {
 		body.grain-grey #header.fixed,
 		body.grain-green #header.fixed,
 		body.grain-orange #header.fixed,
-		body.grain-yellow #header..fixed{
+		body.grain-yellow #header.fixed{
 			background-color:#333;
 		}
 
@@ -222,7 +222,7 @@ div.shop-item-buttons a.btn-default:hover {
 /** SECTION LEFT | RIGHT TRIANGLE AS BACKGROUND [ACTING AS A SEPARATOR] **/
 .leftTriangle,
 .rightTriangle {
-	color: #fff;
+	color: rgb(104, 100, 100);
 	background: #333;
 }
 
@@ -480,9 +480,9 @@ ul.categories>li:after {
 /**	OWL Carousel [essentials.css]
 *************************************************** **/
 .owl-theme .owl-controls .owl-buttons div {
-	color:#fff;
+	color:rgb(63, 61, 61);
 	background:#212121; 
-	border:#212121 1px solid;
+	border:#444242 1px solid;
 }
 /* featured - basic carousel */
 .owl-carousel.featured .owl-featured-detail>a.featured-title {
