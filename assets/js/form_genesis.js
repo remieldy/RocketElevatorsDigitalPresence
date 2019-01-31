@@ -73,25 +73,27 @@ var rln = parseInt(document.getElementById("residential-levelnum").value); // le
 var rbn = parseInt(document.getElementById("residential-basenum").value); // base number
 
 ///comercial var
-var ccan = parseInt(document.getElementById("comer-appnum").value); // appartement number
-var ccln = parseInt(document.getElementById("comer-levelnum").value); // level number
-var cbn = parseInt(document.getElementById("comer-basenum").value); // base number
-var cpn = parseInt(document.getElementById("comer-parkingnum").value); // parking number
-var ccn = parseInt(document.getElementById("comer-cagesnum").value); // cage number
+var commercial_apparts_number = parseInt(document.getElementById("comer-appnum").value); //number of appartement
+var commercial_level_number = parseInt(document.getElementById("comer-levelnum").value); // floors level numbers
+var commercial_base_number = parseInt(document.getElementById("comer-basenum").value); //  Number of basements 
+var corpo_park_nu = parseInt(document.getElementById("comer-parkingnum").value); //  number of parking
+var commercial_cage_number = parseInt(document.getElementById("comer-cagesnum").value); // cage number
+
 
 //corportate var
 
-var cap = parseInt(document.getElementById("corpo-appnum").value); // appartement number
-var cln = parseInt(document.getElementById("corpo-levelnum").value); // level number
-var ccbn = parseInt(document.getElementById("corpo-basenum").value); // base number
-var cpn = parseInt(document.getElementById("corpo-parkingnum").value); // parking number
-var con = parseInt(document.getElementById("corpo-occupantsnum").value); // occupant number
+var corpo_app_num = parseInt(document.getElementById("corpo-appnum").value); // number of appartement
+var corpo_level_num = parseInt(document.getElementById("corpo-levelnum").value); // floors level numbers
+var corpo_base_nu = parseInt(document.getElementById("corpo-basenum").value); //  Number of basements 
+var corpo_park_nu = parseInt(document.getElementById("corpo-parkingnum").value); // number of parking
+var con = parseInt(document.getElementById("corpo-occupantsnum").value); //maximum occupant number
+
 
 //hybrid var
-var han = parseInt(document.getElementById("hyb-appnum").value); // appartement number
-var hln = parseInt(document.getElementById("hyb-levelnum").value); // level number
-var hbn = parseInt(document.getElementById("hyb-basenum").value); // base number
-var hpn = parseInt(document.getElementById("hyb-parkingnum").value); // parking number
+var han = parseInt(document.getElementById("hyb-appnum").value); // number of appartement
+var hln = parseInt(document.getElementById("hyb-levelnum").value); //floors level numbers
+var hbn = parseInt(document.getElementById("hyb-basenum").value); // Number of basements 
+var hpn = parseInt(document.getElementById("hyb-parkingnum").value); // number of parking
 var hon = parseInt(document.getElementById("hyb-occupantsnum").value); // occupant number
 var hhn = parseInt(document.getElementById("hyb-hoursnum").value); // total hour
 
@@ -125,7 +127,7 @@ function getRangePrice() {
 
 /////elevator number 
 
-var env = parseInt(document.getElementById("elevNumV").value); // la case ou ca transmet
+var env = parseInt(document.getElementById("elevNumV").value); // elevator number box
 var unitPrice = 7565;
 
 
@@ -133,10 +135,11 @@ var unitPrice = 7565;
 ////residential function
 function residential() {
     var env = parseInt(document.getElementById("elevNumV").value);
-    var ran = parseInt(document.getElementById("residential-appnum").value); // residentiel appart number
-    var rln = parseInt(document.getElementById("residential-levelnum").value); // residentiel level number
+    var ran = parseInt(document.getElementById("residential-appnum").value); // residentiel number of appartement
+    var rln = parseInt(document.getElementById("residential-levelnum").value); // residentiel floors level numbers
+
     var NblR = Math.ceil(ran / rln); // residential,appartement number / level number = number logement (ratio)
-    var resiElevatorNumb = Math.ceil(NblR / 6); //= rna = nb dassensor ( number logement residential / par 6)
+    var resiElevatorNumb = Math.ceil(NblR / 6); //= rna = elevator number ( number logement residential / 6)
     var Rcl = Math.ceil(rln / 20); // Rcl = residential colonne ( residential level number / 20)
     var env = Rcl * resiElevatorNumb; // residential colonne x residential elevator = cages number
     document.getElementById("elevNumV").value = env;
@@ -158,37 +161,45 @@ function residential() {
 
     
     document.getElementById("totalPrice").textContent = Math.round(totalPrice*100)/100 + "$";
-    // NblR = number logement ratio
-    // Rcl = nombre de colonne
-    // resiElevatorNumb = nombre delevator
+  
 }
 
 /// corporate and hybrid function
 function corpoHyb() {
     console.log("weeeeeeeeeeeeeeeeeeeeeeee")
     var env = parseInt(document.getElementById("elevNumV").value);
-    var cln = parseInt(document.getElementById("corpo-levelnum").value); // number level number
-    console.log(cln)
+    var corpo_level_num = parseInt(document.getElementById("corpo-levelnum").value); //  floors level numbers
+    var corpo_base_nu = parseInt(document.getElementById("corpo-basenum").value); // Number of basements 
+    var con = parseInt(document.getElementById("corpo-occupantsnum").value); // number of  occupant 
 
-    var ccbn = parseInt(document.getElementById("corpo-basenum").value); // base number
-    console.log(ccbn)
-    var con = parseInt(document.getElementById("corpo-occupantsnum").value); // occupant number
-    console.log(con)
-    var cttl = cln + ccbn;
-    console.log(cttl)
-    var clb = Math.ceil((cttl * con) / 1000); ///clb = number partial elevator  (floor total number * occupant number )
-    console.log(clb)
-    var cctn = Math.ceil(cttl / 20); // cctn = column total number  = (clb =  occupant number / 20)
-    console.log(cctn)
-    var cebc = Math.ceil(cctn / cln); //  cebc total nombre elevator par colonne (env = nombre de cage / cln = nombre colonne)   
-    console.log(cebc) 
-    var cte = (cebc * cctn); // cte =nombre de cage total ( nombre elevator par colone * nb colonne total)
-    console.log(cte)
-     var env = cte; 
-    document.getElementById("elevNumV").value = cte;
 
-    // var env = ccn;
-    // document.getElementById("elevNumV").value = ccn;
+   
+    var real_Level_floors = corpo_level_num + corpo_base_nu;
+    var corpo_tot_occ = (real_Level_floors  * con); //  ( Number of elevator columns * total columns)
+    var corpo_column_el = Math.ceil(real_Level_floors / 20); // (corporate partial =  occupant number / 20)
+    var corpo_real_elevator = Math.ceil((corpo_tot_occ /1000) /corpo_column_el); //  (Number of basements + number of floors )
+    var corpo_tot_el = Math.ceil( corpo_real_elevator / corpo_column_el); //  Number of elevator by columns
+    var corpo_tot_el = (corpo_column_el * corpo_real_elevator); // (nombre elevator par colone * total columns)
+    var env = corpo_tot_el;  
+        document.getElementById("elevNumV").value = corpo_tot_el;
+    
+     var corpo_app_num = parseInt(document.getElementById("corpo-appnum").value); // number of appartement
+     var corpo_level_num = parseInt(document.getElementById("corpo-levelnum").value); // floors level numbers
+     var corpo_base_nu = parseInt(document.getElementById("corpo-basenum").value); //  Number of basements 
+     var corpo_park_nu = parseInt(document.getElementById("corpo-parkingnum").value); // number of parking
+     var con = parseInt(document.getElementById("corpo-occupantsnum").value); //maximum occupant number
+
+    
+     // con = = maximum number of occupants
+    //corpo_app_num = number of appartement
+    // corpo_level_num = floors level numbers
+    // corpo_column_el = Number of elevator columns 
+    // corpo_base_nu =   Number of basements 
+    // corpo_park_nu = number of parking
+    //corpo_tot_occ = number total occupants
+    // corpo_tot_col = total Number of elevator columns 
+    // corpo_tot_el = total Number of elevator cages required 
+    // corpo_tot_floors = total floors number
 
    if  (document.getElementById("standard").checked) {
         subTotal = env * 7565;
@@ -205,25 +216,18 @@ function corpoHyb() {
         totalPrice = subTotal + installation;
     }
     document.getElementById("totalPrice").textContent = Math.round(totalPrice*100)/100 + "$";
-    // ccbn base  number
-    // con = occupant number
-    // clb = partial number elevator
-    // cctn = total number column 
-    //  cte =total elevator number or cage
-    // cttl = total floors number
-    // cebc = number column by elevator
-
+    
 }
-
+// open funtion commercial and when you click on the 3 choice the price is automatically  calculate
 function commercial() {
     console.log("weeeeeeeeeeeeeeeeeeeeeeee")
     var env = parseInt(document.getElementById("elevNumV").value);
-    var ccln = parseInt(document.getElementById("comer-levelnum").value); // number level number
-    var cbn = parseInt(document.getElementById("comer-basenum").value); // base number
-    var ccan = parseInt(document.getElementById("comer-appnum").value); // number appartement number
-    var ccn = parseInt(document.getElementById("comer-cagesnum").value);
-    var env = ccn;
-    document.getElementById("elevNumV").value = ccn;
+    var commercial_level_number = parseInt(document.getElementById("comer-levelnum").value); // number level number
+    var commercial_base_number = parseInt(document.getElementById("comer-basenum").value); // base number
+    var commercial_apparts_number = parseInt(document.getElementById("comer-appnum").value); // number appartement number
+    var commercial_cage_number = parseInt(document.getElementById("comer-cagesnum").value); //Number of elevator cages required 
+    var env = commercial_cage_number;
+    document.getElementById("elevNumV").value = commercial_cage_number;
 
     if  (document.getElementById("standard").checked) {
         subTotal = env * 7565;
@@ -274,13 +278,10 @@ $("#premium").on('click', function () {
 
     if ($("#pointer").val() == "1") {
 
-
         residential();
     } else if ($("#pointer").val() == "2") {
-
         commercial();
     } else {
-
         corpoHyb();
     }
 });
