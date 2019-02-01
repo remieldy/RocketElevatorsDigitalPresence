@@ -136,13 +136,17 @@ function residential() {
     var env = parseInt(document.getElementById("elevNumV").value);
     var ran = parseInt(document.getElementById("residential-appnum").value); // residential number of appartement
     var rln = parseInt(document.getElementById("residential-levelnum").value); // residential floors level numbers
+    
 
     var NblR = Math.ceil(ran / rln); // residential,appartement number / level number = number of appartement (ratio)
     var resiElevatorNumb = Math.ceil(NblR / 6); //= rna = elevator number ( number logement residential / 6)
     var Rcl = Math.ceil(rln / 20); // Rcl = residential column ( residential level number / 20)
     var env = Rcl * resiElevatorNumb; // residential column x residential elevator = cages number
     document.getElementById("elevNumV").value = env;
+   
+    
 
+    
     if (document.getElementById("standard").checked) {
         subTotal = env * 7565;
         installation = subTotal * 0.1;
@@ -152,13 +156,15 @@ function residential() {
         subTotal = env * 12345;
         installation = subTotal * 0.13;
         totalPrice = subTotal + installation;
-    } else {
+
+    } else if (document.getElementById("exelium").checked){
         subTotal = env * 15400;
         installation = subTotal * 0.16;
         totalPrice = subTotal + installation;
+       
     }
-
-  
+    
+   
     document.getElementById("totalPrice").textContent = Math.round(totalPrice*100)/100 + "$";
   
 }
@@ -215,7 +221,7 @@ function corpoHyb() {
         totalPrice = subTotal + installation;
     }
     document.getElementById("totalPrice").textContent = Math.round(totalPrice*100)/100 + "$";
-    
+
 }
 // open funtion commercial and when you click on the 3 choice the price is automatically  calculate
 function commercial() {
@@ -237,11 +243,12 @@ function commercial() {
         subTotal = env * 12345;
         installation = subTotal * 0.13;
         totalPrice = subTotal + installation;
-    } else {
+    } else  {
         subTotal = env * 15400;
         installation = subTotal * 0.16;
         totalPrice = subTotal + installation;
     }
+    
     document.getElementById("totalPrice").textContent = Math.round(totalPrice*100)/100 + "$";
 }
 
