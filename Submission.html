@@ -12,7 +12,8 @@
 	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
 	<!-- WEB FONTS : use %7C instead of | (pipe) -->
-	<link href="https://fonts.google.com/specimen/Roboto" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400i" rel="stylesheet">" rel="stylesheet" type="text/css"
+	/>
 
 	<!-- CORE CSS -->
 	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -95,9 +96,6 @@
 
 		</div>
 
-		<a class="slidetop-toggle" href="#">
-			<!-- toggle button --></a>
-
 	</div>
 	<!-- /SLIDE TOP -->
 
@@ -165,44 +163,44 @@
 							<li class="active">
 								<!-- HOME -->
 								<a target="new" href="/index.html">
-									HOME
+									<em><strong>HOME</strong></em>
 								</a>
 							</li>
 							<li class="nav-item dropdown">
 								<!-- SERVICES -->
 								<a class="dropdown-toggle" data-toggle="dropdown">
-									SERVICES
+									<em><strong>SERVICES</strong></em>
 								</a>
 								<ul class="dropdown-menu">
 									<li class="dropdown-item"><a href="resident.html">Residential Services</a></li>
 									<li class="dropdown-item"><a href="submission.html">Submission Services</a></li>
-								    <li class="dropdown-item"><a href="corporate.html">Corporate Services</a></li>
+									<li class="dropdown-item"><a href="corporate.html">Corporate Services</a></li>
 								</ul>
 							</li>
 							<li>
 								<!-- Portfolio -->
 								<a href="#portfolio">
-									PORTFOLIO
+									<em><strong>PORTFOLIO</strong></em>
 								</a>
 							</li>
 							<li>
 								<!-- NEWS -->
 								<a href="#news">
-									NEWS
+									<em><strong>NEWS</strong></em>
 								</a>
 							</li>
 
 							<li>
 								<!-- CLIENTS -->
 								<a href="#clients">
-									CLIENTS
+									<em><strong>CLIENTS</strong></em>
 								</a>
 							</li>
 
 							<li>
 								<!-- CONTACT -->
 								<a href="#contact">
-									CONTACT
+									<em><strong>CONTACT</strong></em>
 								</a>
 							</li>
 						</ul>
@@ -275,7 +273,7 @@
 							<option name="commercial" value="2">Commercial</option>
 							<option name="corporate" value="3">Corporate</option>
 							<option name="hybrid" value="4">Hybrid</option>
-						
+
 						</select>
 					</div>
 
@@ -285,16 +283,16 @@
 
 						<input type="hidden" name="action" value="contact_send" />
 						<!-- /////page residential	submission -->
-						<div id="resi-form" class="col-md-4">
+						<div id="resi-form" class="col-md-6">
 							<input id="residential-appnum" type="number" class="form-control" placeholder="Enter the number of apartments in the building">
 							<input id="residential-levelnum" type="number" class="form-control" placeholder="Enter the number of floors in the building">
 							<input id="residential-basenum" type="number" class="form-control" placeholder="Enter the number of basements in the building ">
-						
+
 						</div>
 
 
 						<!-- ///// page comercant submission -->
-						<div id="comer-form" class="col-md-4">
+						<div id="comer-form" class="col-md-6">
 							<input id="comer-appnum" type="number" class="form-control" placeholder="Enter the number of distinct businesses">
 							<input id="comer-levelnum" type="number" class="form-control" placeholder="Enter the number of floors in the building">
 							<input id="comer-basenum" type="number" class="form-control" placeholder="Enter the number of basements in the building">
@@ -304,7 +302,7 @@
 
 						</div>
 						<!-- /////page corporate submission -->
-						<div id="corpo-form" class="col-md-4">
+						<div id="corpo-form" class="col-md-6">
 							<input id="corpo-appnum" type="number" class="form-control" placeholder="Enter the number of distinct tenant enterprises ">
 							<input id="corpo-levelnum" type="number" class="form-control" placeholder="Enter the number of floors in the building">
 							<input id="corpo-basenum" type="number" class="form-control" placeholder="Enter the number of basements in the building">
@@ -312,7 +310,7 @@
 							<input id="corpo-occupantsnum" type="number" class="form-control" placeholder="Enter the maximum number of occupants for each floor">
 						</div>
 						<!-- /////page hybrid -->
-						<div id="hyb-form" class="col-md-4">
+						<div id="hyb-form" class="col-md-6">
 							<input id="hyb-appnum" type="number" class="form-control" placeholder="Enter the number of distinct businesses">
 							<input id="hyb-levelnum" type="number" class="form-control" placeholder="Enter the number of floors in the building">
 							<input id="hyb-basenum" type="number" class="form-control" placeholder="Enter the number of basements in the building">
@@ -322,12 +320,12 @@
 						</div>
 
 						<!-- ////  case pour elevetor number and the second is price -->
-						<div id="elevNum"  class="col-sm-5">
-								<input id="elevNumV" type="number" class="form-control" placeholder="Number recommended elevator?" readonly>		
+						<div id="elevNum" class="col-sm-5">
+							<input id="elevNumV" type="number" class="form-control" placeholder="Number recommended elevator?" readonly>
 						</div>
-								</form>
-						
-<!-- /////////// payment method for standard,premium,exelium option -->
+					</form>
+
+					<!-- /////////// payment method for standard,premium,exelium option  for the submission page-->
 
 
 					<div class="col-lg-5 col-sm-5">
@@ -358,10 +356,7 @@
 													<i></i> <span style="color:rgb(255, 0, 0)" class="fw-300"><em><strong>Excelium</strong></em></span>
 												</label>
 											</div>
-
 										</div>
-
-
 									</div>
 								</div>
 							</div>
@@ -372,25 +367,17 @@
 							<div class="toggle active">
 								<div class="toggle-content">
 
-									<span class="clearfix">
-										<span class="float-right"></span>
-										<span><strong class="float-left">Subtotal:</strong></span>
-									</span>
-									<span class="clearfix">
-										<span class="float-right">$0.00</span>
-										<span class="float-left">Taxes:</span>
-									</span>
 
 									<hr />
 
 									<span class="clearfix">
-										<span  id="totalPrice" class="float-right fs-20">$</span>
+										<span id="totalPrice" class="float-right fs-20">$</span>
 										<strong class="float-left">TOTAL:</strong>
 									</span>
 
 									<hr />
 
-									<button class="btn btn-primary btn-lg btn-block fs-15"><i class="fa fa-mail-forward"></i> Place Order Now</button>
+									<button class="btn btn-danger btn-lg btn-block fs-15"><i class="fa fa-mail-forward"></i> Place Order Now</button>
 								</div>
 							</div>
 						</div>
@@ -399,7 +386,6 @@
 	</section>
 	<!-- INFO -->
 	<div class="col-md-12 col-sm-12">
-
 
 		<!-- 
 							Available heights
@@ -415,15 +401,19 @@
 								h-550
 								h-600
 							-->
+		<!-- 
+						
+
 		<div id="map2" class="h-400 grayscale"></div>
 
 		<hr />
 
-		<p>
-			<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 418-725 Boulevard Lebourgneuf,
-				Québec, QC G2J 0C4</span>
-			<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:(418) 580-7055">(418) 580-7055</a></span>
-			<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:info.codeboxx.biz">info.codeboxx.biz</a></span>
+		<p>	// information for call rocket elevator compgny -->
+		<!-- /// compagny adress with phone number and email adress -->
+		<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 418-725 Boulevard Lebourgneuf,
+			Québec, QC G2J 0C4</span>
+		<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:(418) 580-7055">(418) 580-7055</a></span>
+		<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:info.codeboxx.biz">info.codeboxx.biz</a></span>
 		</p>
 		<!-- FOOTER -->
 		<footer id="footer">
@@ -460,7 +450,7 @@
 								<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 								<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
 								<span class="input-group-btn">
-									<button class="btn btn-primary" type="submit">Subscribe</button>
+									<button class="btn btn-danger" type="submit">Subscribe</button>
 								</span>
 							</div>
 						</form>
@@ -512,7 +502,7 @@
 
 	<script src="assets/js/scripts.js"></script>
 
-	
+
 
 	<!-- REVOLUTION SLIDER -->
 	<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
