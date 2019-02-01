@@ -109,7 +109,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   }
   
   button {
-    background: #0084ff;
+    background: #8a0c0c;
     border: none;
     border-radius: 5px;
     padding: 8px 14px;
@@ -149,7 +149,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 body.bg-grey,
 body.bg-grey #wrapper {
-	background-color:#f1f2f7;
+	background-color:#f1f2f771;
 }
 /* //// submission background page */
 section {

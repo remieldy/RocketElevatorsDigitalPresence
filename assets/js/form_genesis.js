@@ -63,7 +63,6 @@ $(function () {
         }
     });
 });
-///// number de cage est egale au nombre delevator
 
 
 ///// residential var
@@ -127,7 +126,7 @@ function getRangePrice() {
 
 /////elevator number 
 
-var env = parseInt(document.getElementById("elevNumV").value); // elevator number box
+var env = parseInt(document.getElementById("elevNumV").value); // box for elevator number calcul
 var unitPrice = 7565;
 
 
@@ -135,13 +134,13 @@ var unitPrice = 7565;
 ////residential function
 function residential() {
     var env = parseInt(document.getElementById("elevNumV").value);
-    var ran = parseInt(document.getElementById("residential-appnum").value); // residentiel number of appartement
-    var rln = parseInt(document.getElementById("residential-levelnum").value); // residentiel floors level numbers
+    var ran = parseInt(document.getElementById("residential-appnum").value); // residential number of appartement
+    var rln = parseInt(document.getElementById("residential-levelnum").value); // residential floors level numbers
 
-    var NblR = Math.ceil(ran / rln); // residential,appartement number / level number = number logement (ratio)
+    var NblR = Math.ceil(ran / rln); // residential,appartement number / level number = number of appartement (ratio)
     var resiElevatorNumb = Math.ceil(NblR / 6); //= rna = elevator number ( number logement residential / 6)
-    var Rcl = Math.ceil(rln / 20); // Rcl = residential colonne ( residential level number / 20)
-    var env = Rcl * resiElevatorNumb; // residential colonne x residential elevator = cages number
+    var Rcl = Math.ceil(rln / 20); // Rcl = residential column ( residential level number / 20)
+    var env = Rcl * resiElevatorNumb; // residential column x residential elevator = cages number
     document.getElementById("elevNumV").value = env;
 
     if (document.getElementById("standard").checked) {
@@ -159,14 +158,14 @@ function residential() {
         totalPrice = subTotal + installation;
     }
 
-    
+  
     document.getElementById("totalPrice").textContent = Math.round(totalPrice*100)/100 + "$";
   
 }
 
 /// corporate and hybrid function
 function corpoHyb() {
-    console.log("weeeeeeeeeeeeeeeeeeeeeeee")
+   
     var env = parseInt(document.getElementById("elevNumV").value);
     var corpo_level_num = parseInt(document.getElementById("corpo-levelnum").value); //  floors level numbers
     var corpo_base_nu = parseInt(document.getElementById("corpo-basenum").value); // Number of basements 
@@ -220,7 +219,7 @@ function corpoHyb() {
 }
 // open funtion commercial and when you click on the 3 choice the price is automatically  calculate
 function commercial() {
-    console.log("weeeeeeeeeeeeeeeeeeeeeeee")
+    
     var env = parseInt(document.getElementById("elevNumV").value);
     var commercial_level_number = parseInt(document.getElementById("comer-levelnum").value); // number level number
     var commercial_base_number = parseInt(document.getElementById("comer-basenum").value); // base number
