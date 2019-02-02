@@ -103,7 +103,6 @@ payment["Premium"] = 1.3;
 payment["Exelium"] = 1.6;
 
 
-
 function getRangePrice() {
     var price = 0;
 
@@ -145,7 +144,6 @@ function residential() {
     document.getElementById("elevNumV").value = env;
    
     
-
     
     if (document.getElementById("standard").checked) {
         subTotal = env * 7565;
@@ -157,7 +155,7 @@ function residential() {
         installation = subTotal * 0.13;
         totalPrice = subTotal + installation;
 
-    } else if (document.getElementById("exelium").checked){
+    } else if (document.getElementById("excelium").checked) {
         subTotal = env * 15400;
         installation = subTotal * 0.16;
         totalPrice = subTotal + installation;
@@ -165,7 +163,7 @@ function residential() {
     }
     
    
-    document.getElementById("totalPrice").textContent = Math.round(totalPrice*100)/100 + "$";
+    document.getElementById("totalPrice").innerHTML = Math.round(totalPrice*100)/100 + "$";
   
 }
 
@@ -188,7 +186,7 @@ function corpoHyb() {
     var env = corpo_tot_el;  
         document.getElementById("elevNumV").value = corpo_tot_el;
     
-     var corpo_app_num = parseInt(document.getElementById("corpo-appnum").value); // number of appartement
+     var corpo_appnum = parseInt(document.getElementById("corpo-appnum").value); // number of appartement
      var corpo_level_num = parseInt(document.getElementById("corpo-levelnum").value); // floors level numbers
      var corpo_base_nu = parseInt(document.getElementById("corpo-basenum").value); //  Number of basements 
      var corpo_park_nu = parseInt(document.getElementById("corpo-parkingnum").value); // number of parking
@@ -206,7 +204,7 @@ function corpoHyb() {
     // corpo_tot_el = total Number of elevator cages required 
     // corpo_tot_floors = total floors number
 
-   if  (document.getElementById("standard").checked) {
+    if (document.getElementById("standard").checked) {
         subTotal = env * 7565;
         installation = subTotal * 0.1;
         totalPrice = subTotal + installation;
@@ -215,14 +213,20 @@ function corpoHyb() {
         subTotal = env * 12345;
         installation = subTotal * 0.13;
         totalPrice = subTotal + installation;
-    } else {
+
+    } else if (document.getElementById("excelium").checked) {
         subTotal = env * 15400;
         installation = subTotal * 0.16;
         totalPrice = subTotal + installation;
+       
     }
-    document.getElementById("totalPrice").textContent = Math.round(totalPrice*100)/100 + "$";
-
+    
+   
+    document.getElementById("totalPrice").innerHTML = Math.round(totalPrice*100)/100 + "$";
+  
 }
+
+
 // open funtion commercial and when you click on the 3 choice the price is automatically  calculate
 function commercial() {
     
@@ -234,7 +238,7 @@ function commercial() {
     var env = commercial_cage_number;
     document.getElementById("elevNumV").value = commercial_cage_number;
 
-    if  (document.getElementById("standard").checked) {
+    if (document.getElementById("standard").checked) {
         subTotal = env * 7565;
         installation = subTotal * 0.1;
         totalPrice = subTotal + installation;
@@ -243,14 +247,19 @@ function commercial() {
         subTotal = env * 12345;
         installation = subTotal * 0.13;
         totalPrice = subTotal + installation;
-    } else  {
+
+    } else if (document.getElementById("excelium").checked) {
         subTotal = env * 15400;
         installation = subTotal * 0.16;
         totalPrice = subTotal + installation;
+       
     }
     
-    document.getElementById("totalPrice").textContent = Math.round(totalPrice*100)/100 + "$";
+   
+    document.getElementById("totalPrice").innerHTML = Math.round(totalPrice*100)/100 + "$";
+  
 }
+
 
 $("input").on('keyup', function () {
 
@@ -260,12 +269,13 @@ $("input").on('keyup', function () {
     } else if ($("#pointer").val() == "2") {
 
         commercial();
-    } else {
+    } else   {
 
         corpoHyb();
     }
+     
 });
-//// button standard clacul
+//// button standard clacul with 0.10%
 $("#standard").on('click', function () {
     
     if ($("#pointer").val() == "1") {
@@ -279,7 +289,7 @@ $("#standard").on('click', function () {
 });
 
 
-// premium button calcule
+// premium button calcule with 0.13%
 $("#premium").on('click', function () {
 
     if ($("#pointer").val() == "1") {
@@ -292,20 +302,17 @@ $("#premium").on('click', function () {
     }
 });
 
-
-// button exelium
+// excelium button calcule with 0.16%
 $("#excelium").on('click', function () {
 
     if ($("#pointer").val() == "1") {
 
-
         residential();
     } else if ($("#pointer").val() == "2") {
-
         commercial();
     } else {
-
         corpoHyb();
-    };
+    }
 });
+
 
